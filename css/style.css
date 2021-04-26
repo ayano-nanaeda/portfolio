@@ -1,0 +1,316 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-weight: 500;
+  font-family: "Sawarabi Mincho", sans-serif;
+}
+
+html {
+  font-family： 'M PLUS Rounded 1c'、sans-serif;
+}
+
+header {
+  position: relative;
+  width: 100%;
+  height: 85vh;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-container img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  z-index: 5;
+}
+
+nav .logo {
+  width: 100px;
+}
+
+nav .logo img {
+  display: block;
+  width: 100%;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  padding: 0 1em;
+}
+img {
+  width: 100%;
+}
+
+h1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 2em auto;
+}
+
+h1::before,
+h1::after {
+  content: "";
+  width: 95px;
+  border-top: solid 1px;
+  border-bottom: solid 1px;
+}
+
+/*
+  2021/3/21 ヒツジ修正
+  ドーナツがいっぱい並んでいる商品紹介
+
+  ↓　↓ ここから
+*/
+.donutu-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.donutu-menu .item {
+  width: 25%;
+  padding: 0.5em;
+}
+/*
+  2021/3/21 ヒツジ修正
+
+  ↑ ↑ ここまで
+  ※ 下にメディアクエリでスマホ対応しています。
+*/
+
+.calendar,
+.map {
+  width: 100%;
+  max-width: 100%;
+  margin: 4em auto;
+}
+
+.calender iframe,
+.map iframe {
+  width: 100%;
+}
+
+/* フォームの中央寄せをする */
+.contact-form {
+  margin: 2em auto;
+  width: 80%;
+  max-width: 600px;
+}
+
+form .item {
+  font-size: 25px;
+  margin: 16px 0;
+}
+
+/* inputタグのタイプ別にCSSを適用する */
+form .item input[type="text"],
+form .item input[type="tel"],
+form .item input[type="email"] {
+  display: block;
+  width: 100%;
+  height: 36px;
+  margin-top: 10px;
+}
+
+form .item input[type="radio"] {
+  margin-right: 5px;
+}
+
+form .item textarea {
+  display: block;
+  margin: 2em 0;
+  width: 100%;
+  max-width: 600px;
+  height: 200px;
+}
+
+/* 送信ボタンの中央寄せ(Flexboxを利用) */
+form .btn {
+  margin: 2em auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* 送信ボタン */
+form .btn input[type="submit"] {
+  display: block;
+  width: 100px;
+}
+
+footer {
+  width: 100%;
+  height: 120px;
+  text-align: center;
+  padding: 50px 0;
+}
+
+/*
+  2021/3/21 ヒツジ追記
+
+  ここから下すべて
+*/
+
+.menu-button {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  margin-right: 10px;
+
+  /*
+    画面サイズが768pxより大きい時は
+    メニューボタンは不要なので、非表示にする
+
+    非表示方法
+    display: none;
+  */
+  display: none;
+}
+
+/* 2021/4/15 ヒツジ追記 */
+.menu-button i {
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 2px;
+  background: black;transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+
+.menu-button i:first-child {
+  top: 10px;
+}
+.menu-button i:nth-child(2) {
+  top: 50%;
+}
+.menu-button i:last-child {
+  top: 30px;
+}
+nav.open .menu-button i:first-child {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+nav.open .menu-button i:nth-child(2) {
+  opacity: 0;
+}
+
+nav.open .menu-button i:last-child {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* メディアクエリ */
+
+@media (max-width: 1024px) {
+  .donutu-menu .item {
+    width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-button {
+    /*
+      画面サイズが768px以下の時
+      メニューボタンを表示
+
+      表示方法
+      display: block;
+    */
+    display: block;
+  }
+
+  nav {
+    height: 80px;
+  }
+
+  nav ul {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: white;
+    padding-top: 30px;
+
+    /*
+      メニューボタンが押される前(openクラスなし)
+      非表示にする
+    */
+
+    display: none;
+  }
+
+  nav.open ul {
+    /*
+      メニューボタンが押れた時(openクラスある)
+      表示にする
+    */
+    display: block;
+  }
+
+  nav li {
+    margin: 0.5em 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 599px) {
+  .donutu-menu {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+  }
+
+  .donutu-menu .item {
+    width: 100%;
+  }
+}
